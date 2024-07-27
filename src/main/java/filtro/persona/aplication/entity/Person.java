@@ -1,6 +1,7 @@
 package filtro.persona.aplication.entity;
 
 public class Person {
+    private int id;
     private String name;
     private String lastname;
     private int idcity;
@@ -8,6 +9,9 @@ public class Person {
     private int age;
     private String email;
     private int idgender;
+
+    public Person() {
+    }
     public Person(String name, String lastname, int idcity, String addres, int age, String email, int idgender) {
         this.name = name;
         this.lastname = lastname;
@@ -16,6 +20,12 @@ public class Person {
         this.age = age;
         this.email = email;
         this.idgender = idgender;
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
     public String getName() {
         return name;
