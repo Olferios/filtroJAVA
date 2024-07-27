@@ -40,7 +40,7 @@ public class PersonRepository implements PersonService {
     public void createPerson(Person person) {
         
         try {
-            String query = "INSERT INTO sgpzf.persons (name,lastname,idcity,adddress,age,email,idgender) VALUES (?,?,?,?,?,?,?,)";
+            String query = "INSERT INTO sgpzf.persons (name,lastname,idcity,address,age,email,idgender) VALUES (?,?,?,?,?,?,?)";
             PreparedStatement ps=connection.prepareStatement(query,
             PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, person.getName());
@@ -69,7 +69,7 @@ public class PersonRepository implements PersonService {
 
     @Override
     public void AsignPerson(PersonaSkill personaSkill) {
-        String query = "INSERT INTO sgpzf.personaskills (registration_date,person_id,skill_id) VALUES (?,?,?)";
+        String query = "INSERT INTO sgpzf.persons_skills (registration_date,iperson,idskill) VALUES (?,?,?)";
 
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setDate(1, personaSkill.getRegistrationDate());
@@ -131,7 +131,7 @@ public class PersonRepository implements PersonService {
     @Override
     public void updatePerson(Person person) {
         try {
-            String query="UPDATE person SET (name,lastname,idcity,address,age,email) values(?,?,?,?,?,?)= WHERE id= ?";
+            String query="UPDATE persons SET (name,lastname,idcity,address,age,email) values(?,?,?,?,?,?)= WHERE id= ?";
             PreparedStatement ps=connection.prepareStatement(query);
             ps.setString(1, person.getName());
             ps.setString(2, person.getLastname());
